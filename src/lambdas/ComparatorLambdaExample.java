@@ -22,7 +22,7 @@ public class ComparatorLambdaExample {
         * jave 8 Lambda
         * */
         Comparator<Integer> comparatorLambda = (Integer a, Integer b) -> a.compareTo(b);
-        System.out.println("The result of the comparator Lambda is : "+ comparator.compare(3,2));
+        System.out.println("The result of the comparator Lambda is : "+ comparatorLambda.compare(3,2));
 
     }
 }
