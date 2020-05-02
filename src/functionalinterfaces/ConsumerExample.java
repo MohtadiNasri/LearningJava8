@@ -1,7 +1,7 @@
 package functionalinterfaces;
 
-import functionalinterfaces.data.Student;
-import functionalinterfaces.data.StudentDataBase;
+import data.Student;
+import data.StudentDataBase;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -34,7 +34,8 @@ public class ConsumerExample {
         List<Student> studentList = StudentDataBase.getAllStudents();
         studentList.forEach((student -> {
             if(student.getGradeLevel()>=3 && student.getGpa()>=3.9){
-                consumer3.andThen(consumer4).andThen(consumer2).accept(student);
+                consumer3.andThen(consumer4).accept(student);
+                //consumer3.andThen(consumer4).andThen(consumer2).accept(student);
             }
         })); // consumer chaining
     }
