@@ -21,7 +21,20 @@ public class StreamsExample {
                 .filter(studentgpaPredicate)
                 .collect(Collectors.toMap(Student::getName,Student::getActivities));
 
-        System.out.println(studentMap);
+        //System.out.println(studentMap);
+
+        /*
+        * debugging stream using peek
+        * */
+        Map<String, List<String>> studentMapDebug = StudentDataBase.getAllStudents().parallelStream()
+                //.peek((student -> System.out.println(student)))
+                .filter(studentPredicate)
+                .peek((student -> System.out.println("after first filter "+student)))
+                .filter(studentgpaPredicate)
+                .peek((student -> System.out.println("after second filter "+student)))
+                .collect(Collectors.toMap(Student::getName,Student::getActivities));
+
+        //System.out.println(studentMapDebug);
 
     }
 }
